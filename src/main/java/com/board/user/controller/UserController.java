@@ -101,7 +101,7 @@ public class UserController {
 	}
 	 // /Users/Delete?menuid=aa
 	@RequestMapping("/Delete")
-	public ModelAndView delete(UserVo uswerVo) {
+	public ModelAndView delete(UserVo userVo) {
 		//삭제
 		userMapper.deleteUser(userVo);
 		ModelAndView mv = new ModelAndView();
