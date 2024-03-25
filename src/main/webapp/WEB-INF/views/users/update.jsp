@@ -40,15 +40,15 @@
 	<table>
 	 <tr>
 	   <td>아이디</td>
-	   <td><input type="text" name="userid"value="${vo.userid} }"readonly/></td>
+	   <td><input type="text" name="userid"value="${vo.userid}"readonly/></td>
 	 </tr>
 	 <tr>
 	   <td>비밀번호</td>
-	   <td><input type="password" name="passwd"value="${vo.passwd} " /></td>
+	   <td><input type="password" name="passwd"value="${vo.passwd}" /></td>
 	 </tr>
 	 <tr>
 	   <td>이름</td>
-	   <td><input type="text" name="username"value="${vo.username} " /></td>
+	   <td><input type="text" name="username"value="${vo.username}" /></td>
 	 </tr>
 	 <tr>
 	   <td>이메일</td>

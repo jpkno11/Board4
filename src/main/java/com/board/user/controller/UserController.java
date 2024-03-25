@@ -99,6 +99,15 @@ public class UserController {
           mv.setViewName("redirect:/Users/List");
 	       return mv;
 	}
+	 // /Users/Delete?menuid=aa
+	@RequestMapping("/Delete")
+	public ModelAndView delete(UserVo uswerVo) {
+		//삭제
+		userMapper.deleteUser(userVo);
+		ModelAndView mv = new ModelAndView();
+	     mv.setViewName("redirect:/Users/List");
+		return mv;
+	}
 	
 }
 

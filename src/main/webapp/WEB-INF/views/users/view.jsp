@@ -64,10 +64,18 @@
 	 </tr>
 	 <tr>
 	   <td>포인트</td>
-	   <td>
-	   <c:if test="${ vo.upoint ne 0 }">
-	               ${vo['upoint'] } 
-	               </c:if> 
+	   <td>	 
+	     <%-- <c:if test="${vo.upoint ne 0}">
+	       ${ vo['upoint'] }
+	   	 </c:if> --%>  
+	   	 <c:choose>
+	   	   <c:when test="${vo.upoint ne 0}">
+	   	     ${ vo['upoint'] }
+	   	   </c:when>
+	   	   <c:otherwise>
+	   	     <span style="color:red">없음</span>
+	   	   </c:otherwise>	   	 
+	   	 </c:choose>
 	   </td>
 	   <%-- <td>${ vo.['upoint']+1000 }</td> --%> 
 	 </tr>
