@@ -40,7 +40,7 @@
 	<table>
 	 <tr>
 	   <td>아이디</td>
-	   <td><input type="text" name="userid"value="${vo.userid} }"/></td>
+	   <td><input type="text" name="userid"value="${vo.userid} }"readonly/></td>
 	 </tr>
 	 <tr>
 	   <td>비밀번호</td>
