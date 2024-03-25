@@ -78,6 +78,12 @@
 	    
 	
 	</update>
+	<delete id = "deleteUser">
+	DELETE FROM TUSER
+	WHERE USERID = #{userid}
+	
+	</delete>
+	
 </mapper>
 
 
