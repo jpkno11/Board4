@@ -70,11 +70,11 @@
 	</insert>
 	<update id="updateUser">
 	    UPDATE  TUSER
-	    SET     USERNAME = ${username},
-	            PASSWD  =  ${passwd},
-	            EMAIL   =  ${email},
-	            UPOINT  =  ${upoint}, 
-	    WHERE   USERID  =  ${userid}, 
+	    SET     USERNAME = #{username},
+	            PASSWD  =  #{passwd},
+	            EMAIL   =  #{email},
+	            UPOINT  =  #{upoint}, 
+	    WHERE   USERID  =  #{userid}, 
 	    
 	
 	</update>
