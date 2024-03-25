@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="icon" type="image/png" href="/img/favicon.png" />
 <link rel="stylesheet"  href="/css/common.css" />
 <style>
@@ -21,9 +19,6 @@
    }
    td:nth-of-type(1) {
       width : 200px;
-   }
-   td:nth-of-type(2) {
-      text-align: left;
    }
    
    td:not([colspan]):first-child {
@@ -40,59 +35,42 @@
 </head>
 <body>
   <main>
-	<h2>사용자 상세 정보</h2>	
+	<h2>사용자 수정</h2>
+	<form action="/Users/Update" method="POST">
 	<table>
 	 <tr>
 	   <td>아이디</td>
-	   <td>${ vo.userid }</td>
+	   <td><input type="text" name="userid"value="${vo.userid} }"/></td>
 	 </tr>
 	 <tr>
 	   <td>비밀번호</td>
-	   <td>${ vo.passwd }</td>
+	   <td><input type="password" name="passwd"value="${vo.passwd} " /></td>
 	 </tr>
 	 <tr>
 	   <td>이름</td>
-	   <td>${ vo.username }</td>
+	   <td><input type="text" name="username"value="${vo.username} " /></td>
 	 </tr>
 	 <tr>
 	   <td>이메일</td>
-	   <td>${ vo.email }</td>
-	 </tr>
-	 <tr>
-	   <td>회원등급</td>
-	   <td>${ vo.upt    }</td>
+	   <td><input type="text" name="upoint"value="${vo.email}" /></td>
 	 </tr>
 	 <tr>
 	   <td>포인트</td>
-	   <td>
-	   <c:if test="${ vo.upoint ne 0 }">
-	               ${vo['upoint'] } 
-	               </c:if> 
-	   </td>
-	   <%-- <td>${ vo.['upoint']+1000 }</td> --%> 
+	   <td><input type="text" value="1000" value="${vo.upoint}" /></td>
 	 </tr>
 	 <tr>
 	   <td>가입일</td>
-	   <td>${ vo.indate }</td>
+	   <td><input type="text"  value="${ now }" readonly /></td>
 	 </tr>
 	 <tr>
 	   <td colspan="2">
-	    <a class="btn btn-primary btn-sm" role="button" 
-	     href="/Users/WriteForm" >회원가입</a>
-	     
-	    <a class="btn btn-primary btn-sm" role="button"
-	     href="/Users/UpdateForm?userid=${ vo.userid }" >회원수정</a>
-	    <a class="btn btn-primary btn-sm" role="button" 
-	    href="/Users/Delete?userid=${ vo.userid }" >회원삭제</a>
-	    
-	    <a class="btn btn-primary btn-sm" role="button" 
-	    href="/Users/List" >회원목록</a>
-	    <a class="btn btn-primary btn-sm" role="button" 
-	    href="/" >Home</a> 
+	    <input type="submit" value="수정" />
+	    <input type="button" value="목록" id="goList" />
 	   </td>
 	 </tr>
 	
-	</table>
+	</table>	
+	</form>   
 	
   </main>
   

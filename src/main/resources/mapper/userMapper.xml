@@ -3,7 +3,7 @@
 <mapper namespace="com.board.user.mapper.UserMapper">  
 		 
 	<resultMap id="getUserMap" type="java.util.HashMap">
-	 <result property="userid"    column="userid"  />
+	 <result property="userid"    column="userid"/>
 	 <result property="passwd"    column="passwd"  />
 	 <result property="username"  column="username" />
 	 <result property="email"     column="email" />
@@ -68,7 +68,16 @@
 	    )	
 		
 	</insert>
+	<update id="updateUser">
+	    UPDATE  TUSER
+	    SET     USERNAME = ${username},
+	            PASSWD  =  ${passwd},
+	            EMAIL   =  ${email},
+	            UPOINT  =  ${upoint}, 
+	    WHERE   USERID  =  ${userid}, 
+	    
 	
+	</update>
 </mapper>
 
 
