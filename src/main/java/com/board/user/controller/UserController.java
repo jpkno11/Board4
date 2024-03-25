@@ -70,7 +70,7 @@ public class UserController {
 		ModelAndView  mv  =  new ModelAndView();
 		mv.addObject("vo", map);
 		mv.setViewName("users/view");
-		return  mv;		
+		return  mv;;
 	}
 	
 	//  /Users/UpdateForm?user_id=sky
