@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.board.user.domain.UserVo;
+import com.board.user.mapper.UserMapper;
+
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
@@ -20,7 +23,8 @@ public class UserController {
   @RequestMapping("/List")
    public ModelAndView list() {
 	  //사용자목록 조회
-	  List<UserVo> userList= userMapper.getUswerList();
+	  
+	  List<UserVo> userList= userMapper.getUserList();
 	  ModelAndView mv = new ModelAndView();
 	  mv.addObject("userList",userList);
       mv.setViewName("users/List");
@@ -29,7 +33,7 @@ public class UserController {
   // / Users/WriteForm
       @RequestMapping("/writeForm")
        public ModelAndView writeForm() {
-    	  ModelAndView mb = new ModelAndView();
+    	  ModelAndView mv = new ModelAndView();
     	  mv.setViewName("users/wirte");
     	  return mv;
       }
@@ -37,7 +41,7 @@ public class UserController {
       @RequestMapping("/wirte")
        public ModelAndView write(UserVo userVo) {
     	  //저장
-    	  userMapper.insertUswer(userVo);
+    	  userMapper.insertUser(userVo);
     	  //데이터를 가지고 이동한다
     	  ModelAndView mv = new ModelAndView();
     	  mv.setViewName("redirect:/Uswers/List");
@@ -47,25 +51,25 @@ public class UserController {
       @RequestMapping("/View")
       public ModelAndView view(UserVo userVo) {
     	  //user_id=aa db 조회
-    	  HashMap<String Object> map = userMapper.getUswer(userVo);
+    	  HashMap<String ,Object> map = userMapper.getUser(userVo);
     	  // System.out.println(vo);
     	  log.info("map:{}",map);
     	  // map.get("userid")
     	  ModelAndView mv = new ModelAndView();
-    	  mv.addAllObjects("vo",map);
+    	  mv.addObject("vo",map);
     	  mv.setViewName("users/view");
     	  return mv;
       }
       // /Uswers / UpdateForm?user_id=sky
       @RequestMapping("/updateForm")
       public ModelAndView updateForm(UserVo userVo) {
-    	  //아이디로 수정할 한면의 데이털ㄹ 조회
+    	  //아이디로 수정할 한면의 데이터 조회
     	  HashMap<String,Object> map= userMapper.getUser(userVo);
     	  //Model에 담는다
-       ModelAndview mv = new ModelAndView();
-       mv.addobJECT("vo,"map);
+       ModelAndView mv = new ModelAndView();
+       mv.addObject("vo",map);
       //이동한다
-       mv.setViewName("users/updaate");
+       mv.setViewName("users/update");
         return mv;
       }
       // /users/Update
@@ -75,7 +79,7 @@ public class UserController {
     	  //수정
     	  userMapper.updateUser(userVo);
          ModelAndView mv = new ModelAndView();
-         mv.setViewName("redirect"/Users/List);
+         mv.setViewName("redirect/Users/List");
          return mv;
          
       }
