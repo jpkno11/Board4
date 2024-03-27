@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.board.domain.BoardVo;
 import com.board.mapper.BoardMapper;
+import com.board.menus.domain.MenuVO;
 
 @SpringBootTest
 class Board3ApplicationTests {
@@ -51,7 +51,7 @@ class Board3ApplicationTests {
 	// db 저장확인 - sql 문 테스트 : Insert
 	@Test
 	void  testInsert() {
-		BoardVo  vo  = new BoardVo();
+		MenuVO  vo  = new MenuVO();
 		vo.setTitle("Springboot 글쓰기");
 		vo.setContent("글 내용입니다");
 		vo.setWriter("관리자");
